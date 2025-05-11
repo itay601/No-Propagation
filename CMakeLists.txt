@@ -27,6 +27,7 @@ set(SOURCES
     src/neural_network/activation.cpp 
     src/diffusion/diffusion_model.cpp 
     src/diffusion/noise.cpp
+    src/utils/data_loader.cpp
 )
 
 # Create executable
@@ -37,5 +38,13 @@ if(TARGET Eigen3::Eigen)
     target_link_libraries(nn_diffusion Eigen3::Eigen)
 endif()
 
+target_link_libraries(nn_diffusion stdc++fs)
+
 # If you want to install the executable
 install(TARGETS nn_diffusion DESTINATION bin)
+
+# Create output directory
+file(MAKE_DIRECTORY ${CMAKE_BINARY_DIR}/output)
+
+# Create data directory 
+file(MAKE_DIRECTORY ${CMAKE_BINARY_DIR}/data)
