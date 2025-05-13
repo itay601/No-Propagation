@@ -123,8 +123,8 @@ int main(int argc, char** argv) {
                 
                 // Save samples as PPM images
                 for (int i = 0; i < samples.rows(); i++) {
-                    std::string filename = "output/sample_epoch" + std::to_string(epoch) + "_" + std::to_string(i) + ".ppm";
-                    if (dataLoader.saveImageAsPPM(samples.row(i), filename)) {
+                    std::string filename = "output/sample_epoch_" + std::to_string(epoch) + "_" + std::to_string(i) + ".json";
+                    if (dataLoader.saveTensorAsJSON(samples.row(i), filename)) {
                         std::cout << "Saved sample to " << filename << std::endl;
                     }
                 }
@@ -144,9 +144,9 @@ int main(int argc, char** argv) {
     } else {
         // Save samples as PPM images
         for (int i = 0; i < samples.rows(); i++) {
-            std::string filename = "output/final_sample_" + std::to_string(i) + ".ppm";
-            if (dataLoader.saveImageAsPPM(samples.row(i), filename)) {
-                std::cout << "Saved final sample to " << filename << std::endl;
+            std::string filename = "output/test_epoch_" + std::to_string(i) + "_" + std::to_string(i) + ".json";
+            if (dataLoader.saveTensorAsJSON(samples.row(i), filename)) {
+                std::cout << "Saved sample to " << filename << std::endl;
             }
         }
     }

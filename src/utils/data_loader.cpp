@@ -1,5 +1,6 @@
 #include "data_loader.hpp"
 
+   // check if the binary dataset is in format .
    bool ImageDataLoader::loadCIFAR10Binary(const std::string& filename) {
         std::ifstream file(filename, std::ios::binary);
         if (!file.is_open()) {
@@ -148,4 +149,30 @@
         file.write(reinterpret_cast<char*>(reordered.data()), reordered.size());
         
         return !file.fail();
+    }
+
+    bool ImageDataLoader::saveTensorAsJSON(const Eigen::MatrixXd& flattenedImage, const std::string& filename) const {
+        std::ofstream file(filename);
+        if (!file.is_open()) {
+            std::cerr << "Error: Could not open file " << filename << std::endl;
+            return false;
+        }
+        
+        file << "{" << std::endl;
+        file << "  \"channels\": " << channels << "," << std::endl;
+        file << "  \"height\": " << height << "," << std::endl;
+        file << "  \"width\": " << width << "," << std::endl;
+        file << "  \"data\": [";
+        
+        const int total = flattenedImage.cols();
+        for (int i = 0; i < total; i++) {
+            file << flattenedImage(0, i);
+            if (i != total - 1) {
+                file << ", ";
+            }
+        }
+        file << "]" << std::endl;
+        file << "}" << std::endl;
+        
+        return true;
     }
