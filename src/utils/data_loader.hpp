@@ -26,7 +26,7 @@ public:
     
     // Save an image to a PPM file (simple image format)
     bool saveImageAsPPM(const Eigen::MatrixXd& flattenedImage, const std::string& filename) const;
-    
+    bool saveTensorAsJSON(const Eigen::MatrixXd& flattenedImage, const std::string& filename) const; 
     // Getters
     int getNumSamples() const { return numSamples; }
     int getChannels() const { return channels; }
