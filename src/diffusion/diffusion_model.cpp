@@ -133,3 +133,44 @@ double DiffusionModel::trainStep(const Eigen::MatrixXd& batch, double learningRa
     
     return totalLoss / batch.rows();
 }
+
+void DiffusionModel::printNetworkStructure(const DiffusionModel& model) {
+    std::cout << "\n=============================================" << std::endl;
+    std::cout << "         DIFFUSION MODEL STRUCTURE           " << std::endl;
+    std::cout << "=============================================" << std::endl;
+    
+    std::cout << "Latent dimension: " << model.getLatentDim() << std::endl;
+    std::cout << "Number of timesteps: " << model.getTimesteps() << std::endl;
+    
+    std::cout << "\nLAYER STRUCTURE:" << std::endl;
+    std::cout << "---------------------------------------------" << std::endl;
+    
+    // You'll need to add accessor methods to your DiffusionModel class
+    // to expose the layers and their properties
+    
+    for (int i = 0; i < model.getNumLayers(); i++) {
+        auto& layer = model.getLayer(i);
+        const auto& weights = layer->getWeights();
+        const auto& biases = layer->getBiases();
+        
+        std::cout << "Layer " << i+1 << ":" << std::endl;
+        std::cout << "  Type: " << (i == 0 ? "Input" : 
+                                   i == model.getNumLayers()-1 ? "Output" : "Hidden") << std::endl;
+        std::cout << "  Weights shape: [" << weights.rows() << ", " << weights.cols() << "]" << std::endl;
+        std::cout << "  Biases shape: [" << biases.rows() << "]" << std::endl;
+        std::cout << "  Activation: " << 
+            (i == model.getNumLayers()-1 ? "Sigmoid" : "ReLU") << std::endl;
+        
+        if (i < model.getNumLayers()-1) {
+            std::cout << "  Output dimension: " << weights.rows() << std::endl;
+        }
+        
+        std::cout << "---------------------------------------------" << std::endl;
+    }
+    
+    std::cout << "\nNOISE SCHEDULER PARAMETERS:" << std::endl;
+    std::cout << "---------------------------------------------" << std::endl;
+    std::cout << "Beta start: 0.0001" << std::endl;
+    std::cout << "Beta end: 0.02" << std::endl;
+    std::cout << "---------------------------------------------" << std::endl;
+}
