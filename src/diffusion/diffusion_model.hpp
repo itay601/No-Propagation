@@ -31,5 +31,13 @@ public:
     
     // Train the model on a batch
     double trainStep(const Eigen::MatrixXd& batch, double learningRate);
+
+    // Print structure of NN 
+    void printNetworkStructure(const DiffusionModel& model);
+    
+    int getLatentDim() const { return latentDim; }
+    int getTimesteps() const { return timesteps; }
+    int getNumLayers() const { return layers.size(); }
+    const std::shared_ptr<Layer>& getLayer(int idx) const { return layers[idx]; }
 };
 

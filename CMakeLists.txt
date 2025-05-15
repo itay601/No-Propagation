@@ -28,6 +28,7 @@ set(SOURCES
     src/diffusion/diffusion_model.cpp 
     src/diffusion/noise.cpp
     src/utils/data_loader.cpp
+    src/utils/utils.cpp
 )
 
 # Create executable

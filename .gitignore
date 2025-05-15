@@ -3,3 +3,4 @@ myenv/*
 build/*
 eigen/
 src/data/cifar10_data.bin 
+notes
