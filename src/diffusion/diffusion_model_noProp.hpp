@@ -2,7 +2,7 @@
 #include <Eigen/Dense>
 #include <vector>
 #include <memory>
-#include "../neural_network/layer_noprop.hpp"
+#include "../neural_network/noPropLayer.hpp"
 #include "noise.hpp"
 
 class DiffusionModelNoProp {

@@ -18,7 +18,6 @@
 // The DiffusionTrainer class encapsulates the entire training and sampling process.
 class SimpleModelTrainer {
 public:
-    // Constructor accepts command-line arguments so that we can override the default data file if needed.
     SimpleModelTrainer(int argc, char** argv)
         : batchSize(32),
           numEpochs(1000),

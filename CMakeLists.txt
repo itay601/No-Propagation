@@ -25,10 +25,13 @@ set(SOURCES
     src/main.cpp 
     src/neural_network/layer.cpp 
     src/neural_network/activation.cpp 
+    src/neural_network/noPropLayer.cpp
     src/diffusion/diffusion_model.cpp 
     src/diffusion/noise.cpp
+    src/diffusion/diffusion_model_noProp.cpp
     src/utils/data_loader.cpp
     src/utils/utils.cpp
+    
 )
 
 # Create executable
