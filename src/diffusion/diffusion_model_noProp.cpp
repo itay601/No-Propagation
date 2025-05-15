@@ -1,4 +1,4 @@
-#include "diffusion_model_noprop.hpp"
+#include "diffusion_model_noProp.hpp"
 #include <random>
 #include <cmath>
 #include <iostream>

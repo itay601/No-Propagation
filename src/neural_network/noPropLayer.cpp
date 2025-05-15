@@ -1,4 +1,4 @@
-#include "layer_noprop.hpp"
+#include "noPropLayer.hpp"
 #include <random>
 #include <iostream>
 #include <cmath>
