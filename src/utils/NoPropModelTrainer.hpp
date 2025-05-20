@@ -20,12 +20,12 @@ public:
     NoPropModelTrainer(int argc, char** argv)
         : inputDim(3072),          // Dimension of input data
           latentDim(3072),         // Dimension of latent space (same as input for simplicity)
-          hiddenDim(1000),         // Hidden layer dimension
+          hiddenDim(512),         // Hidden layer dimension
           timesteps(50),         // Number of diffusion timesteps
           perturbStrength(0.001), // Strength of weight perturbations
           updateFreq(10),        // Frequency of perturbation updates
           batchSize(32),         // Batch size
-          numEpochs(1000),       // Number of training epochs
+          numEpochs(10),       // Number of training epochs || ----CHANGE--IT!!!!
           learningRate(0.001),   // Learning rate
           sampleFrequency(100),  // How often to generate samples
           useSyntheticData(false) // Whether to use synthetic data
